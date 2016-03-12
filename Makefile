@@ -1,6 +1,3 @@
 push:
-	#git checkout -b $(tag)
 	git tag -f $(tag) `git rev-parse HEAD`
-	#git checkout -
-	#git branch -D $(tag)
-	git push origin $(tag)
+	git push --force origin refs/tags/$(tag):refs/tags/$(tag)
