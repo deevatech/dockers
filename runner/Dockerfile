@@ -96,6 +96,9 @@ RUN locale-gen en_US.UTF-8 \
 USER deeva
 
 # Install Rspec (ruby)
-ENV PATH=/home/deeva/.gem/ruby/$RUBY_VERSION/bin:$PATH
-RUN gem install rspec --user-install
+ENV PATH=$HOME/.gem/ruby/$RUBY_VERSION/bin:$PATH
+RUN gem install rspec --user-install \
+  && mkdir -p $HOME/code/ruby/lib \
+  && cd $HOME/code/ruby/ \
+  && rspec --init
 
