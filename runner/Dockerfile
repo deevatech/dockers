@@ -93,12 +93,14 @@ RUN locale-gen en_US.UTF-8 \
 
 # We removed git, curl, wget, unzip to make life harder for ill-intentioned users
 
-USER deeva
+# Setup language environments
 
-# Install Rspec (ruby)
-ENV PATH=$HOME/.gem/ruby/$RUBY_VERSION/bin:$PATH
-RUN gem install rspec --user-install \
-  && mkdir -p $HOME/code/ruby/lib \
-  && cd $HOME/code/ruby/ \
-  && rspec --init
+RUN gem install rspec \
+  && mkdir -p /home/deeva/code/ruby/lib \
+  && cd /home/deeva/code/ruby \
+  && rspec --init \
+  && chown -R deeva:deeva /home/deeva/code
+
+USER deeva
+ENV DEEVA_RUNNER_RUBY_HOME=$HOME/code/ruby
 
