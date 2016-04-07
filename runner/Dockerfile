@@ -92,10 +92,10 @@ RUN locale-gen en_US.UTF-8 \
   \
   && apt-get clean \
   && apt-get autoremove -y \
-  && apt-get remove --purge -y git curl wget unzip \
+  && apt-get remove --purge -y curl wget unzip \
   && rm -rf /var/lib/apt/lists/*
 
-# We removed git, curl, wget, unzip to make life harder for ill-intentioned users
+# We removed curl, wget, unzip to make life harder for ill-intentioned users
 
 # Setup language environments
 
