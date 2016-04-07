@@ -71,6 +71,7 @@ RUN locale-gen en_US.UTF-8 \
   \
   \
   && curl -s https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz | tar -C /opt -zx \
+  && mkdir /opt/glide \
   && curl -sL https://github.com/Masterminds/glide/releases/download/${GLIDE_VERSION}/glide-${GLIDE_VERSION}-linux-amd64.tar.gz | tar -C /opt/glide -zx \
   && ln -s /opt/glide/linux-amd64/glide /usr/local/bin/glide \
   \
