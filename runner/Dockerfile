@@ -13,6 +13,7 @@ ENV LANG=en_US.UTF-8 \
     RBENV_ROOT=/opt/rbenv \
     RUBY_VERSION=2.3.0 \
     GO_VERSION=1.6 \
+    GLIDE_VERSION=0.10.2 \
     GOROOT=/opt/go \
     NODE_VERSION=4.3.2 \
     CLOJURE_VERSION=1.8.0
@@ -70,6 +71,8 @@ RUN locale-gen en_US.UTF-8 \
   \
   \
   && curl -s https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz | tar -C /opt -zx \
+  && curl -sL https://github.com/Masterminds/glide/releases/download/${GLIDE_VERSION}/glide-${GLIDE_VERSION}-linux-amd64.tar.gz | tar -C /opt/glide -zx \
+  && ln -s /opt/glide/linux-amd64/glide /usr/local/bin/glide \
   \
   \
   \
