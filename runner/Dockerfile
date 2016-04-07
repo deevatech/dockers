@@ -102,5 +102,5 @@ RUN gem install rspec \
   && chown -R deeva:deeva /home/deeva/code
 
 USER deeva
-ENV DEEVA_RUNNER_RUBY_HOME=$HOME/code/ruby
+ENV DEEVA_RUNNER_RUBY_HOME=/home/deeva/code/ruby
 
