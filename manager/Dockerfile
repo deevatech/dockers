@@ -18,6 +18,7 @@ RUN locale-gen en_US.UTF-8 \
   && apt-get install -qy --no-install-recommends \
     ca-certificates \
     curl \
+    git \
   && apt-get clean \
   && apt-get autoremove -y \
   && rm -rf /var/lib/apt/lists/*
